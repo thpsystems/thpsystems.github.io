@@ -1,6 +1,6 @@
 # ArcoNorte Nexus - Landing Page
 
-Esta subpasta contém os arquivos públicos da landing page do **ArcoNorte Nexus**, servida via GitHub Pages da THP DeepTech & Systems (`thpinteligencia.github.io/arconorte-nexus`).
+Esta subpasta contém os arquivos públicos da landing page do **ArcoNorte Nexus**, servida via GitHub Pages da THP DeepTech & Systems (`thpsystems.com.br/arconorte-nexus`).
 
 ## Estrutura
 O código-fonte principal da aplicação analítica completa e os dados de treinamento de IA do modelo LSTM residem em um repositório privado separado (`arconorte-nexus`). Apenas os arquivos HTML, CSS e JS estáticos e sanitizados necessários para a landing page institucional e o simulador interativo do IPE são publicados aqui de forma pública.
@@ -19,4 +19,4 @@ O script executará as seguintes etapas de forma automática:
 4. Fazer o commit e push automáticos para a branch `main` do repositório público, disponibilizando as atualizações no ar imediatamente.
 
 ---
-*Uma iniciativa da [THP DeepTech & Systems](https://thp.inteligencia.com.br)*
+*Uma iniciativa da [THP DeepTech & Systems](https://thpsystems.com.br)*

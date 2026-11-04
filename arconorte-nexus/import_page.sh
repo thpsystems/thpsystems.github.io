@@ -7,7 +7,7 @@
 # Configurações do repositório central (determinado dinamicamente)
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 TARGET_REPO_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
-REPO_URL="git@github-thp:thpinteligencia/thpinteligencia.github.io.git"
+REPO_URL="git@github-thp:thpsystems/thpsystems.github.io.git"
 
 # Define caminhos padrão específicos do ArcoNorte Nexus
 DEFAULT_SRC_DIR="/home/hiago/Workspace/THP/arconorte-nexus/docs"
@@ -62,7 +62,7 @@ git push origin main
 
 if [ $? -eq 0 ]; then
     echo "✅ Sucesso! A landing page está no ar em:"
-    echo "👉 https://thpinteligencia.github.io/$SUB_FOLDER/"
+    echo "👉 https://thpsystems.com.br/$SUB_FOLDER/"
 else
     echo "❌ Erro ao enviar os dados para o GitHub."
 fi

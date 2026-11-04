@@ -7,7 +7,7 @@
 # Configurações do repositório central (determinado dinamicamente)
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 TARGET_REPO_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
-REPO_URL="git@github-thp:thpinteligencia/thpinteligencia.github.io.git"
+REPO_URL="git@github-thp:thpsystems/thpsystems.github.io.git"
 
 # Verifica parâmetros
 if [ -z "$1" ] || [ -z "$2" ]; then
@@ -61,7 +61,7 @@ git push origin main
 
 if [ $? -eq 0 ]; then
     echo "✅ Sucesso! A landing page está no ar em:"
-    echo "👉 https://thpinteligencia.github.io/$SUB_FOLDER/"
+    echo "👉 https://thpsystems.com.br/$SUB_FOLDER/"
 else
     echo "❌ Erro ao enviar os dados para o GitHub."
 fi
