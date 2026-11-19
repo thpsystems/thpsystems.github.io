@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>VRural | THP DeepTech & Systems</title>
-    <meta name="description" content="Plataforma de capacitação agrícola imersiva em Realidade Virtual para o agronegócio regional e agricultura familiar." />
+    <title>VRural — Simulação Agrícola Interativa | THP DeepTech & Systems</title>
+    <meta name="description" content="Simulação Agrícola Interativa para o Ensino Técnico e Superior — Do Web MVP à IA e Realidade Virtual. Aprender no simulador para não errar na lavoura." />
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts & Custom CSS -->
     <link rel="stylesheet" href="../../css/custom.css" />
 
     <style>
@@ -42,7 +42,7 @@
         border: 1px solid var(--color-border);
         border-radius: 24px;
         padding: 3rem;
-        max-width: 900px;
+        max-width: 960px;
         margin: 0 auto;
       }
 
@@ -80,10 +80,10 @@
         color: var(--color-text-secondary);
       }
 
-      .status-dev {
-        background: #f59e0b14;
-        color: #fbbf24;
-        border: 1px solid rgba(245, 158, 11, 0.15);
+      .status-active {
+        background: rgba(16, 185, 129, 0.12);
+        color: #10b981;
+        border: 1px solid rgba(16, 185, 129, 0.25);
       }
 
       .project-title {
@@ -99,8 +99,22 @@
       .project-subtitle {
         font-size: 1.15rem;
         color: var(--color-text-secondary);
-        margin-bottom: 1.75rem;
+        margin-bottom: 1rem;
         line-height: 1.6;
+      }
+
+      .project-motto {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: #00f58d;
+        background: rgba(0, 245, 141, 0.08);
+        border: 1px solid rgba(0, 245, 141, 0.2);
+        padding: 0.35rem 0.75rem;
+        border-radius: 8px;
+        margin-bottom: 1.75rem;
       }
 
       .eixos-tags {
@@ -142,41 +156,382 @@
         margin-bottom: 1.25rem;
       }
 
-      .features-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        gap: 1.25rem;
-        margin: 1.75rem 0 2.5rem 0;
+      /* Live Showcase Card */
+      .showcase-container {
+        margin: 2rem 0 2.5rem 0;
+        background: #040e06;
+        border: 1px solid rgba(0, 245, 141, 0.25);
+        border-radius: 18px;
+        overflow: hidden;
+        box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
       }
 
-      .feature-box {
+      .showcase-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.75rem 1.25rem;
+        background: #07150a;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .showcase-dots {
+        display: flex;
+        gap: 6px;
+      }
+
+      .showcase-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      .showcase-dot.red { background: #f87171; }
+      .showcase-dot.yellow { background: #fbbf24; }
+      .showcase-dot.green { background: #34d399; }
+
+      .showcase-badge {
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: #00f58d;
+      }
+
+      .showcase-media {
+        position: relative;
+        width: 100%;
+        background: #020703;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .showcase-media img,
+      .showcase-media video {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .showcase-footer {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1.15rem 1.25rem;
+        background: #06150a;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .showcase-info-text {
+        font-size: 0.88rem;
+        color: var(--color-text-secondary);
+      }
+
+      .showcase-info-text strong {
+        color: var(--color-text-primary);
+      }
+
+      .btn-launch-mvp {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: linear-gradient(135deg, #059669, #10b981);
+        color: #ffffff;
+        text-decoration: none;
+        font-family: var(--font-heading);
+        font-size: 0.88rem;
+        font-weight: 700;
+        padding: 0.65rem 1.25rem;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+      }
+
+      .btn-launch-mvp:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+        filter: brightness(1.08);
+      }
+
+      .btn-launch-mvp:active {
+        transform: translateY(0);
+      }
+
+      /* Notice Box for Popups */
+      .popup-notice {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.6rem;
+        background: rgba(234, 179, 8, 0.08);
+        border: 1px solid rgba(234, 179, 8, 0.25);
+        color: #fde047;
+        font-size: 0.8rem;
+        line-height: 1.45;
+        padding: 0.65rem 0.85rem;
+        border-radius: 8px;
+        margin-top: 0.75rem;
+        width: 100%;
+      }
+
+      .popup-notice svg {
+        flex-shrink: 0;
+        margin-top: 0.1rem;
+        color: #eab308;
+      }
+
+      /* Modal Popup Dialog for Simulator */
+      .simulator-modal {
+        border: 1px solid rgba(0, 245, 141, 0.3);
+        background: #020703;
+        border-radius: 16px;
+        padding: 0;
+        width: 95vw;
+        max-width: 1280px;
+        height: 92vh;
+        max-height: 960px;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.85), 0 0 40px rgba(0, 245, 141, 0.15);
+        color: #f3f4f6;
+        overflow: hidden;
+        margin: auto;
+      }
+
+      .simulator-modal::backdrop {
+        background: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(8px);
+      }
+
+      .simulator-modal[open] {
+        display: flex;
+        flex-direction: column;
+        animation: modalFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      @keyframes modalFadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0.96) translateY(12px);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+        }
+      }
+
+      .modal-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.75rem 1.25rem;
+        background: #051408;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        flex-shrink: 0;
+      }
+
+      .modal-bar-title {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-family: var(--font-heading);
+        font-size: 0.92rem;
+        font-weight: 700;
+        color: #00f58d;
+        letter-spacing: -0.01em;
+      }
+
+      .modal-bar-controls {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .modal-open-tab {
+        font-size: 0.78rem;
+        color: var(--color-text-secondary);
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+        padding: 0.3rem 0.6rem;
+        border-radius: 6px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.2s ease;
+      }
+
+      .modal-open-tab:hover {
+        color: #ffffff;
+        border-color: rgba(0, 245, 141, 0.3);
+        background: rgba(0, 245, 141, 0.05);
+      }
+
+      .modal-close-btn {
+        background: #ffffff14;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        color: #e5e7eb;
+        font-size: 0.85rem;
+        font-weight: 600;
+        padding: 0.35rem 0.75rem;
+        border-radius: 6px;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        transition: all 0.2s ease;
+      }
+
+      .modal-close-btn:hover {
+        background: rgba(239, 68, 68, 0.2);
+        border-color: rgba(239, 68, 68, 0.4);
+        color: #fca5a5;
+      }
+
+      .modal-iframe-container {
+        flex: 1;
+        width: 100%;
+        height: 100%;
+        background: #020703;
+        position: relative;
+      }
+
+      .modal-iframe-container iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        display: block;
+      }
+        box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+      }
+
+      .btn-launch-mvp:hover {
+        transform: translateY(-2px);
+        filter: brightness(1.1);
+        box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
+      }
+
+      /* Compare Cards: Desafio vs Solucao */
+      .compare-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.25rem;
+        margin: 1.5rem 0 2.5rem 0;
+      }
+
+      .compare-card {
         background: rgba(255, 255, 255, 0.03);
         border: 1px solid var(--color-border);
         border-radius: 16px;
         padding: 1.5rem;
+      }
+
+      .compare-card.challenge {
+        border-color: rgba(248, 113, 113, 0.25);
+        background: rgba(248, 113, 113, 0.03);
+      }
+
+      .compare-card.solution {
+        border-color: rgba(0, 245, 141, 0.25);
+        background: rgba(0, 245, 141, 0.03);
+      }
+
+      .compare-card h3 {
+        font-family: var(--font-heading);
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .compare-card.challenge h3 { color: #f87171; }
+      .compare-card.solution h3 { color: #00f58d; }
+
+      .compare-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.85rem;
+        font-size: 0.9rem;
+        line-height: 1.5;
+        color: var(--color-text-secondary);
+      }
+
+      .compare-list strong {
+        color: var(--color-text-primary);
+      }
+
+      /* Roadmap Cards */
+      .roadmap-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.25rem;
+        margin: 1.75rem 0 2.5rem 0;
+      }
+
+      .roadmap-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--color-border);
+        border-radius: 16px;
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
         transition: transform 0.2s ease, border-color 0.2s ease;
       }
 
-      .feature-box:hover {
+      .roadmap-card:hover {
         transform: translateY(-2px);
         border-color: var(--color-border-hover);
       }
 
-      .feature-box h3 {
+      .roadmap-card.active-phase {
+        border-color: rgba(0, 245, 141, 0.35);
+        background: rgba(0, 245, 141, 0.04);
+      }
+
+      .phase-tag {
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        margin-bottom: 0.75rem;
+        display: inline-block;
+      }
+
+      .phase-tag.phase-active { color: #00f58d; }
+      .phase-tag.phase-mid { color: #fbbf24; }
+      .phase-tag.phase-long { color: #38bdf8; }
+
+      .roadmap-card h3 {
         font-family: var(--font-heading);
-        font-size: 1.1rem;
+        font-size: 1.05rem;
         font-weight: 700;
         color: var(--color-text-primary);
         margin-bottom: 0.5rem;
       }
 
-      .feature-box p {
-        font-size: 0.9rem;
+      .roadmap-card p {
+        font-size: 0.88rem;
         line-height: 1.5;
         color: var(--color-text-secondary);
-        margin-bottom: 0;
+        margin-bottom: 1rem;
       }
 
+      .roadmap-tech {
+        font-size: 0.78rem;
+        color: var(--color-text-muted);
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        padding-top: 0.65rem;
+      }
+
+      /* Validation List */
       .validation-list {
         list-style: none;
         padding: 0;
@@ -247,15 +602,24 @@
         .project-title {
           font-size: 2.1rem;
         }
+        .showcase-footer {
+          flex-direction: column;
+          align-items: stretch;
+        }
+        .btn-launch-mvp {
+          text-align: center;
+          justify-content: center;
+        }
       }
     </style>
     <link rel="canonical" href="https://thpsystems.com.br/projetos/vrural/" />
   
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://thpsystems.com.br/projetos/vrural/" />
-    <meta property="og:title" content="VRural | THP DeepTech & Systems" />
-    <meta property="og:description" content="Plataforma de capacitação agrícola imersiva em Realidade Virtual para o agronegócio regional e agricultura familiar." />
-    <meta property="og:image" content="https://thpsystems.com.br/og-image.jpg" /></head>
+    <meta property="og:title" content="VRural — Simulação Agrícola Interativa | THP DeepTech & Systems" />
+    <meta property="og:description" content="Simulação Agrícola Interativa para o Ensino Técnico e Superior — Do Web MVP à IA e Realidade Virtual. Aprender no simulador para não errar na lavoura." />
+    <meta property="og:image" content="https://thpsystems.com.br/og-image.jpg" />
+  </head>
   <body>
     <!-- Mesh Background Decorator -->
     <div class="mesh-bg"></div>
@@ -263,30 +627,31 @@
 
     <div class="app-container">
       
-    <!-- Header Navigation -->
-    <header class="navbar">
-      <div class="nav-container">
-        <a href="../../" class="brand">
-          <span class="logo-text">
-            <span class="logo-t">T</span>HP<span class="accent-dot">.</span>
-          </span>
-          <span class="logo-subtext">DeepTech &amp; Systems</span>
-        </a>
-        <nav class="nav-links">
-          <a href="../../#plataformas" class="nav-link">Plataformas</a>
-          <a href="../../#solucoes-enterprise" class="nav-link">Soluções Enterprise</a>
-          <a href="../../labs/" class="nav-link">P&amp;D &amp; PI</a>
-          <a href="../../sobre/" class="nav-link">Sobre</a>
-          <a href="../../contato/" class="nav-link">Contato</a>
-        </nav>
-        <button class="hamburger-btn" aria-label="Abrir menu" aria-expanded="false">
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-        </button>
-      </div>
-    </header>
-<div class="back-nav">
+      <!-- Header Navigation -->
+      <header class="navbar">
+        <div class="nav-container">
+          <a href="../../" class="brand">
+            <span class="logo-text">
+              <span class="logo-t">T</span>HP<span class="accent-dot">.</span>
+            </span>
+            <span class="logo-subtext">DeepTech &amp; Systems</span>
+          </a>
+          <nav class="nav-links">
+            <a href="../../#plataformas" class="nav-link">Plataformas</a>
+            <a href="../../#solucoes-enterprise" class="nav-link">Soluções Enterprise</a>
+            <a href="../../labs/" class="nav-link">P&amp;D &amp; PI</a>
+            <a href="../../sobre/" class="nav-link">Sobre</a>
+            <a href="../../contato/" class="nav-link">Contato</a>
+          </nav>
+          <button class="hamburger-btn" aria-label="Abrir menu" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+        </div>
+      </header>
+
+      <div class="back-nav">
         <a href="../../labs/" class="back-button">
           <span class="arrow">←</span> Voltar ao THP Labs
         </a>
@@ -296,119 +661,221 @@
         <header class="detail-header">
           <div class="header-meta">
             <span class="hierarquia-tag">THP Labs · Spin-off</span>
-            <span class="status-badge status-dev">P&D · AgTech</span>
-            <span class="status-badge" style="background: rgba(34, 197, 94, 0.12); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.25);">✦ Centelha RR · Sebrae</span>
+            <span class="status-badge status-active">● MVP Web Ativo</span>
+            <span class="status-badge" style="background: rgba(34, 197, 94, 0.12); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.25);">✦ Centelha RR · FINEP / Sebrae</span>
           </div>
           <h1 class="project-title">VRural</h1>
           <p class="project-subtitle">
-            Capacitação técnica imersiva em Realidade Virtual para a agricultura.
+            Aprendizado agrícola com simulação prática — Do Web MVP à IA e Realidade Virtual.
           </p>
+          <div class="project-motto">
+            <span>🌾 "Aprender no simulador para não errar na lavoura."</span>
+          </div>
           <div class="eixos-tags">
-            <span class="tag-item">🌱 AgTech & EdTech</span>
-            <span class="tag-item">🥽 Realidade Virtual (VR)</span>
-            <span class="tag-item">🧠 IA Adaptativa</span>
+            <span class="tag-item">🌱 AgTech &amp; EdTech na Amazônia</span>
+            <span class="tag-item">💻 MVP Web Operacional</span>
+            <span class="tag-item">🔬 Ciência Embrapa</span>
+            <span class="tag-item">🧠 Tutor com IA</span>
+            <span class="tag-item">🥽 Realidade Virtual / RA</span>
           </div>
         </header>
 
         <main class="markdown-content">
-          <!-- 1. O Problema -->
+          <!-- 1. O Espaço entre a Teoria e o Campo -->
           <section class="project-section">
-            <h2>O Desafio: Exclusão Técnica e o Custo do Erro no Campo</h2>
+            <h2>O Desafio e a Solução Interativa</h2>
             <p>
-              Cerca de 80% dos agricultores familiares no Brasil não têm acesso a assistência técnica regular e continuada. Em regiões periféricas e de fronteira agrícola como Roraima, o aprendizado ocorre por tentativa e erro diretamente na lavoura — onde uma falha de manejo ou regulagem gera prejuízos financeiros severos e endividamento.
+              Conectar a teoria da sala de aula à tomada de decisão agronômica real exige prática. A <strong>VRural</strong> nasceu para inovar no ensino no campo, permitindo que estudantes, profissionais e produtores rurais calibrem o solo e formulem hipóteses operacionais em ambiente digital antes de mobilizar insumos no campo.
             </p>
-          </section>
 
-          <!-- 2. A Solução -->
-          <section class="project-section">
-            <h2>A Solução: Simuladores Imersivos de Manejo</h2>
-            <p>
-              A VRural desenvolve módulos práticos em Realidade Virtual que permitem ao produtor realizar o manejo de culturas em ambiente 3D seguro e interativo. O agricultor "aprende fazendo", repetindo a técnica até atingir a precisão operacional sem comprometer sua safra real.
-            </p>
-            
-            <div class="features-grid">
-              <div class="feature-box">
-                <h3>🌾 Culturas</h3>
-                <p>Módulos voltados ao manejo de culturas de alto valor agregado.</p>
+            <div class="compare-grid">
+              <div class="compare-card challenge">
+                <h3>⚠️ O Espaço entre a Teoria e o Campo</h3>
+                <ul class="compare-list">
+                  <li><strong>Ensino Teórico:</strong> Fórmulas de calagem, nutrição, colheita, etc, na lousa preparam o aluno para condições controladas, mas não para a tomada de decisão real e o manejo do risco climático.</li>
+                  <li><strong>Alto Custo e Risco do Erro:</strong> Errar em campo desperdiça insumos e compromete safras inteiras.</li>
+                  <li><strong>Logística Limitada:</strong> Levar turmas inteiras a campo ou traze-las do campo para a sala de aula constantemente é custoso e depende de calendários e sazonalidade climática.</li>
+                </ul>
               </div>
-              <div class="feature-box">
-                <h3>🤝 Modelo Territorial</h3>
-                <p>Atuação integrada a cooperativas e associações locais, capacitando técnicos da própria comunidade como agentes multiplicadores (leads).</p>
-              </div>
-              <div class="feature-box">
-                <h3>🧠 Inteligência Adaptativa</h3>
-                <p>Camada analítica futura para rastrear padrões de erro, prever curvas de aprendizado e personalizar o ritmo de instrução.</p>
+
+              <div class="compare-card solution">
+                <h3>🌱 A Solução Interativa VRural</h3>
+                <ul class="compare-list">
+                  <li><strong>MVP Web:</strong> Roda direto no navegador de qualquer laboratório de informática, eliminando barreiras de hardware caro.</li>
+                  <li><strong>Simulação Baseada na Ciência:</strong> Modelagem validada com parâmetros da Embrapa para solos ácidos de Roraima.</li>
+                  <li><strong>Da Web para IA, RV e RA:</strong> Plataforma preparada para escalar com tutoria adaptativa com Inteligência Artificial e imersão total em Realidade Virtual e Aumentada.</li>
+                </ul>
               </div>
             </div>
           </section>
 
-          <!-- 3. Validação e Editais -->
+          <!-- 2. Live Showcase do Simulador Web -->
+          <section class="project-section">
+            <h2>Console Virtual: Cultura do Milho (MVP Funcional)</h2>
+            <p>
+              O primeiro módulo do simulador coloca o aluno no papel de tomador de decisão técnica sobre o preparo do solo e a nutrição de base do milho (<em>Zea mays</em>). O estudante analisa o laudo inicial da área, escolhe a incorporação do calcário, calibra a dose, avança a linha do tempo da safra e vivencia os efeitos na produtividade e no balanço financeiro.
+            </p>
+
+            <div class="showcase-container">
+              <div class="showcase-header">
+                <div class="showcase-dots">
+                  <div class="showcase-dot red"></div>
+                  <div class="showcase-dot yellow"></div>
+                  <div class="showcase-dot green"></div>
+                </div>
+                <span class="showcase-badge">Console Interativo • Modo Missão &amp; Linha do Tempo</span>
+              </div>
+              <div class="showcase-media">
+                <video autoplay loop muted playsinline poster="assets/vrural-simulador-slide.gif">
+                  <source src="assets/vrural-simulador-pitch.mp4" type="video/mp4" />
+                  <img src="assets/vrural-simulador-pitch.gif" alt="Demonstração do Simulador Agronômico VRural em funcionamento" />
+                </video>
+              </div>
+              <div class="showcase-footer">
+                <div class="showcase-info-text">
+                  <strong>Simulação Ativa:</strong> Calagem a 20 cm, adubação de base (P₂O₅), veranico e colheita.
+                </div>
+                <button type="button" class="btn-launch-mvp" id="btn-open-simulator" aria-haspopup="dialog" aria-controls="simulator-modal">
+                  <span>Abrir Simulador Interativo</span> ➔
+                </button>
+              </div>
+              <div class="popup-notice">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="12"></line>
+                  <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+                <span>
+                  <strong>Aviso de exibição:</strong> O simulador roda diretamente dentro desta página em janela interativa. Caso você utilize extensões rigorosas de bloqueio de pop-up/adblocker ou janelas modais, permita a execução para interagir com o console.
+                </span>
+              </div>
+            </div>
+          </section>
+
+          <!-- 3. Roadmap Tecnológico -->
+          <section class="project-section">
+            <h2>Roadmap Tecnológico do THP Labs</h2>
+            <p>
+              Evolução gradual de baixo CAPEX: do simulador web pronto para laboratórios escolares à tutoria adaptativa com IA e imersão total em RV/RA.
+            </p>
+
+            <div class="roadmap-grid">
+              <div class="roadmap-card active-phase">
+                <div>
+                  <span class="phase-tag phase-active">● Ativo Hoje · MVP Web</span>
+                  <h3>Calibração de Solo &amp; Nutrição de Milho</h3>
+                  <p>Simulador web de solos interativo já funcional para laboratórios de ensino: diagnóstico de acidez, cálculo de calagem a 20 cm e adubação fosfatada no sulco com parâmetros da Embrapa.</p>
+                </div>
+                <div class="roadmap-tech">Plataforma Web (Navegador) · Vanilla JS + SVG</div>
+              </div>
+
+              <div class="roadmap-card">
+                <div>
+                  <span class="phase-tag phase-mid">⏳ Médio Prazo · Camada de IA</span>
+                  <h3>Tutor Pedagógico com IA</h3>
+                  <p>Motor de Inteligência Artificial para mapear padrões de erro dos alunos e personalizar trilhas de aprendizagem para docentes em tempo real.</p>
+                </div>
+                <div class="roadmap-tech">IA Adaptativa · Análise Pedagógica de Erros</div>
+              </div>
+
+              <div class="roadmap-card">
+                <div>
+                  <span class="phase-tag phase-long">🔮 Longo Prazo · Imersão Total</span>
+                  <h3>Realidade Virtual (RV) e Aumentada (RA)</h3>
+                  <p>Transição dos módulos pedagógicos validados para ambientes imersivos 3D e Realidade Aumentada no campo, elevando a experiência para imersão espacial.</p>
+                </div>
+                <div class="roadmap-tech">Hardware Imersivo · Óculos RV &amp; Sensores RA</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. Validação Institucional e Editais -->
           <section class="project-section">
             <h2>Validação Institucional e Fomento</h2>
             <div class="validation-list">
               <div class="validation-item">
                 <span class="validation-icon">🏆</span>
                 <div class="validation-content">
-                  <strong>Programa Centelha 3ª Edição - Roraima (FAPERR/FINEP)</strong>
-                  <span>Projeto classificado nas etapas de mérito e avaliação técnica do edital.</span>
+                  <strong>Programa Centelha 3ª Edição - Roraima (FAPERR / FINEP)</strong>
+                  <span>Projeto classificado e aprovado nas etapas de mérito e avaliação técnica de inovação.</span>
                 </div>
               </div>
               <div class="validation-item">
                 <span class="validation-icon">🏛️</span>
                 <div class="validation-content">
                   <strong>Garagem BNDES 2025</strong>
-                  <span>Tese avaliada e selecionada entre as etapas competitivas de negócios com alto impacto socioambiental.</span>
+                  <span>Tese avaliada e selecionada entre as etapas competitivas de negócios de impacto socioambiental e educacional.</span>
                 </div>
               </div>
               <div class="validation-item">
                 <span class="validation-icon">🚀</span>
                 <div class="validation-content">
                   <strong>Startup Roraima (Sebrae RR)</strong>
-                  <span>Em aceleração ativa com foco em modelagem de mercado e conexão setorial.</span>
+                  <span>Aceleração ativa com foco em modelagem comercial B2B/B2G e conexão com o ecossistema agroeducacional.</span>
                 </div>
               </div>
             </div>
           </section>
 
-          <!-- 4. Síntese dos Eixos do Projeto -->
+          <!-- 5. Síntese no Ecossistema THP -->
           <div class="ecosystem-summary">
             <h3>💡 Síntese no Ecossistema THP</h3>
             <ul>
-              <li><strong>Natureza:</strong> Spin-off AgTech / EdTech incubada no laboratório de inovação da THP.</li>
-              <li><strong>Público-Alvo:</strong> Pequenos e médios produtores rurais, cooperativas agrícolas e programas de extensão rural.</li>
-              <li><strong>Diferencial Competitivo:</strong> Treinamento imersivo em Realidade Virtual, articulação comunitária/associativista e desenvolvimento de IA tutor/professor exclusivo para o produtor rural.</li>
+              <li><strong>Natureza:</strong> Spin-off AgTech &amp; EdTech concebida e incubada no laboratório de inovação da THP.</li>
+              <li><strong>Público-Alvo:</strong> Escolas agrícolas, institutos federais, faculdades de Agronomia e, em Fase 2, cooperativas de produtores rurais.</li>
+              <li><strong>Diferencial Competitivo:</strong> Software educativo de baixo CAPEX baseado em dados reais da Embrapa, arquitetura pronta para evolução com tutor IA e simulação imersiva.</li>
             </ul>
           </div>
         </main>
       </article>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="footer-container">
+          <div class="footer-brand">
+            <span class="logo-text"><span class="logo-t">T</span>HP<span class="accent-dot">.</span> <span class="logo-subtext-footer">DeepTech &amp; Systems</span></span>
+            <p class="footer-company-name">THP DeepTech &amp; Systems · Ecossistema de Plataformas Proprietárias</p>
+            <p class="footer-company-info">THP Inteligência Empresarial e Soluções em Negócios LTDA · CNPJ 63.580.847/0001-02 · Boa Vista, RR</p>
+          </div>
+          <div class="footer-links">
+            <a href="../../#plataformas">Plataformas</a>
+            <a href="../../#solucoes-enterprise">Soluções Enterprise</a>
+            <a href="../../labs/">P&amp;D &amp; PI</a>
+            <a href="../../sobre/">Sobre</a>
+            <a href="../../blog/">Blog</a>
+            <a href="../../contato/">Contato</a>
+            <a href="../../governanca/">Governança</a>
+            <a href="../../privacidade/">Privacidade</a>
+            <a href="../../termos/">Termos</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 THP DeepTech &amp; Systems · THP Inteligência Empresarial e Soluções em Negócios LTDA.</p>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Dialog / Popup Modal do Simulador 100% Local -->
+    <dialog id="simulator-modal" class="simulator-modal" aria-label="Console Interativo do Simulador VRural">
+      <div class="modal-bar">
+        <div class="modal-bar-title">
+          <span>🌱 VRural — Simulador Agronômico Interativo</span>
+        </div>
+        <div class="modal-bar-controls">
+          <a href="./simulador/" target="_blank" rel="noopener noreferrer" class="modal-open-tab" title="Abrir em aba inteira">
+            <span>↗ Abrir em nova aba</span>
+          </a>
+          <button type="button" class="modal-close-btn" id="modal-close-btn" aria-label="Fechar Simulador">
+            ✕ Fechar
+          </button>
+        </div>
+      </div>
+      <div class="modal-iframe-container">
+        <iframe id="sim-iframe" data-src="./simulador/index.html" src="about:blank" title="Simulador VRural - Manejo do Solo e Milho" allow="fullscreen"></iframe>
+      </div>
+    </dialog>
     
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="footer-container">
-        <div class="footer-brand">
-          <span class="logo-text"><span class="logo-t">T</span>HP<span class="accent-dot">.</span> <span class="logo-subtext-footer">DeepTech &amp; Systems</span></span>
-          <p class="footer-company-name">THP DeepTech &amp; Systems · Ecossistema de Plataformas Proprietárias</p>
-          <p class="footer-company-info">THP Inteligência Empresarial e Soluções em Negócios LTDA · CNPJ 63.580.847/0001-02 · Boa Vista, RR</p>
-        </div>
-        <div class="footer-links">
-          <a href="../../#plataformas">Plataformas</a>
-          <a href="../../#solucoes-enterprise">Soluções Enterprise</a>
-          <a href="../../labs/">P&amp;D &amp; PI</a>
-          <a href="../../sobre/">Sobre</a>
-          <a href="../../blog/">Blog</a>
-          <a href="../../contato/">Contato</a>
-          <a href="../../governanca/">Governança</a>
-          <a href="../../privacidade/">Privacidade</a>
-          <a href="../../termos/">Termos</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 THP DeepTech &amp; Systems · THP Inteligência Empresarial e Soluções em Negócios LTDA.</p>
-      </div>
-    </footer>
-  </div>
-  
-    <!-- Mobile Menu Script -->
+    <!-- Mobile Menu & Simulator Modal Scripts -->
     <script id="mobile-menu-script">
       document.addEventListener('DOMContentLoaded', () => {
         const hamburgerBtn = document.querySelector('.hamburger-btn');
@@ -420,6 +887,65 @@
             hamburgerBtn.setAttribute('aria-expanded', !isExpanded);
             hamburgerBtn.classList.toggle('active');
             navLinks.classList.toggle('active');
+          });
+        }
+
+        // Simulator Modal Controls
+        const modal = document.getElementById('simulator-modal');
+        const btnOpen = document.getElementById('btn-open-simulator');
+        const btnClose = document.getElementById('modal-close-btn');
+        const simIframe = document.getElementById('sim-iframe');
+
+        function openSimulator() {
+          if (!modal) return;
+          // Lazy load iframe on first open
+          if (simIframe && simIframe.src.endsWith('about:blank')) {
+            simIframe.src = simIframe.dataset.src || './simulador/index.html';
+          }
+          if (typeof modal.showModal === 'function') {
+            modal.showModal();
+          } else {
+            modal.setAttribute('open', '');
+          }
+          document.body.style.overflow = 'hidden';
+        }
+
+        function closeSimulator() {
+          if (!modal) return;
+          if (typeof modal.close === 'function') {
+            modal.close();
+          } else {
+            modal.removeAttribute('open');
+          }
+          document.body.style.overflow = '';
+        }
+
+        if (btnOpen) {
+          btnOpen.addEventListener('click', openSimulator);
+        }
+
+        if (btnClose) {
+          btnClose.addEventListener('click', closeSimulator);
+        }
+
+        // Close on backdrop click
+        if (modal) {
+          modal.addEventListener('click', (event) => {
+            const rect = modal.getBoundingClientRect();
+            const isInDialog = (
+              rect.top <= event.clientY &&
+              event.clientY <= rect.top + rect.height &&
+              rect.left <= event.clientX &&
+              event.clientX <= rect.left + rect.width
+            );
+            if (!isInDialog) {
+              closeSimulator();
+            }
+          });
+
+          // Escape key handling
+          modal.addEventListener('cancel', () => {
+            document.body.style.overflow = '';
           });
         }
       });
